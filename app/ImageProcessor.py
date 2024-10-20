@@ -1,6 +1,9 @@
 import cv2 as cv
 import numpy as np
 import json
+import base64
+from PIL import Image
+import io
 
 def find_transformation(ref, input_frame, scale_factor=1, MIN_MATCH_COUNT=10, draw=False, printout=False):
     img1 = cv.resize(ref, None, fx=scale_factor, fy=scale_factor)

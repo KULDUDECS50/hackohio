@@ -117,19 +117,18 @@ export default function Dissertation() {
           manufacturing process.
         </p>
 
-        <h2 className="text-2xl">References</h2>
-        <p>
-          A comprehensive list of literature and resources on photolithography,
-          DIY manufacturing, and the Hackerfab initiative will be included here,
-          ensuring that all sources of information are properly credited and
-          accessible for further reading.
-        </p>
-
         <h2 className="text-2xl">Authors</h2>
         <p>
           Kuldeep Debnath, Rohan Reddy, Vikranth Vegesina, & Jason Kibler II
         </p>
       </main>
+      <div>
+        <h1>
+          <a className="underline underline-offset-4" href="./">
+            home
+          </a>
+        </h1>
+      </div>
     </div>
   );
 }
