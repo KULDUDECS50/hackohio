@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "178",
-  description: "Generated for hack/ohio ",
+  title: "autopatt",
+  description: "generated for hack/ohio ",
 };
 
 export default function RootLayout({
