@@ -1,17 +1,29 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedImage, setSelectedImage] = useState<
+    string | ArrayBuffer | null
+  >(null);
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20  sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1 className="mb-4 text-7xl">Group 178</h1>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Placeholder 1{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold"></code>
-            .
-          </li>
-          <li>Placeholder 2</li>
+          <li className="mb-2">Built to scale.</li>
+          <li>Scaled to build.</li>
         </ol>
 
         {/* Before and After Sections */}
@@ -19,7 +31,32 @@ export default function Home() {
           {/* Before Section */}
           <div className="flex-1 rounded-lg border border-light-300 p-6 bg-white shadow-md dark:bg-white/[0.06]">
             <h2 className="text-lg font-bold mb-4">Before</h2>
-            <p>Your content for the before section goes here.</p>
+            <div className="flex flex-col items-center mb-4">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="mb-4 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold 
+      file:bg-gray-200 file:dark:bg-white/[0.06] hover:file:bg-gray-300 dark: dark:file:text-gray-200 
+      dark:hover:file:dark:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+              />
+
+              {selectedImage && (
+                <Image
+                  src={selectedImage as string}
+                  alt="Uploaded Image"
+                  width={200}
+                  height={200}
+                  className="rounded-lg border border-light-300 shadow-md transition-transform duration-200 transform hover:scale-105"
+                />
+              )}
+
+              {!selectedImage && (
+                <p className="dark:bg-white/[0.06]0 dark:text-gray-400 text-sm mt-2">
+                  No image uploaded. Please select an image to preview it.
+                </p>
+              )}
+            </div>
           </div>
 
           {/* After Section */}
