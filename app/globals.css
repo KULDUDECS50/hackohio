@@ -3,14 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --text: #ffc4c4;
+  --background: inear-gradient(
+    143deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --foreground: #0a0a0a;
+  --alt: #e3e3e3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffc4c4;
   }
 }
 
