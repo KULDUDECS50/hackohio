@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "csv-parse": "^5.5.6",
+    "fs": "^0.0.1-security",
     "next": "^14.2.15",
     "papaparse": "^5.4.1",
     "particles.js": "^2.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
     "@types/node": "^20",

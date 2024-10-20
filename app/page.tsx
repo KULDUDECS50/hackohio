@@ -1,35 +1,73 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import dataSON from "../test.json";
 import img from "./public/ruler.png";
+import aimg from "./public/angle.png";
+import Link from "next/link";
+
+import Dissertation from "./dissertation/page";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
 interface TodoData {
-  userId: number;
-  id: number;
+  stat1: number;
+  stat2: number;
+  stat3: number;
   title: string;
   completed: boolean;
 }
+
 export default function Home() {
-  const [todo, setTodo] = useState<TodoData | null>(null); // State to hold the fetched data
+  //const [todo, setTodo] = useState<TodoData | null>(null); // State to hold the fetched todo data
   const [loading, setLoading] = useState(true);
+  const data = {
+    x: 126.0,
+    y: 57.0,
+    theta: -0.18,
+  };
+  // const [transformationData, setTransformationData] = useState<{
+  //   x: number;
+  //   y: number;
+  //   theta: number;
+  // } | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/todos/1"
-        );
-        const jsonData: TodoData = await response.json();
-        setTodo(jsonData); // Store the fetched data
-      } catch (error) {
-        console.error("Error fetching the data:", error);
-      } finally {
-        setLoading(false); // Set loading to false after fetch
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     // Fetch todo data
+  //     try {
+  //       const response = await fetch(
+  //         "https://jsonplaceholder.typicode.com/todos/1"
+  //       );
+  //       const jsonData: TodoData = await response.json();
+  //       setTodo(jsonData); // Store the fetched todo data
+  //     } catch (error) {
+  //       console.error("Error fetching the todo data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []); // Empty dependency array ensures this runs only once
+  //   const fetchTransformationData = async () => {
+  //     // Fetch transformation data from public folder
+  //     try {
+  //       const response = await fetch("/data.json"); // Ensure this is the correct path
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       const jsonData = await response.json();
+  //       setTransformationData(jsonData.transformation); // Adjust according to your JSON structure
+  //     } catch (error) {
+  //       console.error("Error fetching transformation data:", error);
+  //     } finally {
+  //       setLoading(false); // Set loading to false after fetching
+  //     }
+  //   };
+
+  //   fetchData();
+  //   fetchTransformationData();
+  // }, []); // Empty dependency array ensures this runs only once
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -64,26 +102,53 @@ export default function Home() {
         <div className="w-full h-[2px] bg-foreground dark:bg-foreground"></div>
 
         <div className="container mx-auto text-sm sm:text-left font-[family-name:var(--font-geist-mono)]">
-          {loading ? (
-            <p>Loading...</p>
-          ) : todo ? (
-            <div className="mb-4 flex flex-row">
-              <div className="flex items-center">
-                <Image
-                  className="dark:invert rotate-90 mr-4"
-                  src={img} // Ensure 'img' is defined in your component
-                  alt="Ruler"
-                  width={20}
-                  height={20}
-                />
-                <p>Displaced {todo.userId} millimeters from the target.</p>
-              </div>
-            </div>
-          ) : (
-            <p>No data available.</p>
-          )}
+          <div className="mb-4 flex flex-row">
+            <ul>
+              <li>
+                <div className="flex items-center">
+                  <Image
+                    className="dark:invert rotate-90 mr-4"
+                    src={img}
+                    alt="Ruler"
+                    width={20}
+                    height={20}
+                  />
+                  <p>Displaced {data.x / 3.7}mm to the right</p>
+                </div>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <Image
+                    className="dark:invert rotate-90 mr-4"
+                    src={img}
+                    alt="Ruler"
+                    width={20}
+                    height={20}
+                  />
+                  <p>Displaced {data.y / 3.7}mm to the left</p>
+                </div>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <Image
+                    className="dark:invert mr-4"
+                    src={aimg}
+                    alt="Ruler"
+                    width={20}
+                    height={20}
+                  />
+                  <p>Angled at {data.theta / 3.7} degrees from the target.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </main>
+      <div>
+        <h1>
+          Learn <a href="./dissertation">Next.js!</a>
+        </h1>
+      </div>
     </div>
   );
 }
