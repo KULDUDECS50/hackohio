@@ -28,7 +28,9 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex flex-row items-center mt-6 mb-3">
-          <h1 className="text-6xl">autopatt</h1>
+          <div className="flex flex-col">
+            <h1 className="text-6xl">autopatt</h1>
+          </div>
           <div className="ml-56">
             <a
               className="rounded-full border border-solid border-transparent flex items-center transition-all duration-300 ease-in-out justify-center bg-foreground text-white dark:bg-foreground dark:text gap-2 hover:bg-[#24262d] dark:hover:bg-white dark:text-black text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer"
@@ -51,11 +53,11 @@ export default function Home() {
             <li>- scaled to build.</li>
           </ul>
         </div>
-
-        <div className="flex flex-col items-center justify-center font-[family-name:var(--font-geist-sans)]">
+        <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
           <h2 className="text-4xl w-full text-foreground dark:text-[foreground]">
             analytics.
           </h2>
+          <p>(most recent run)</p>
         </div>
         <div className="w-full h-[2px] bg-foreground dark:bg-foreground"></div>
 
