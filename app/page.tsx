@@ -83,7 +83,7 @@ export default function Home() {
                       width={20}
                       height={20}
                     />
-                    <p>Displaced {data.x / 3.7} mm to the right</p>
+                    <p>Displaced {data.x / 3.7} mm to the vertically</p>
                   </div>
                 </li>
                 <li className="mb-3">
@@ -95,7 +95,7 @@ export default function Home() {
                       width={20}
                       height={20}
                     />
-                    <p>Displaced {data.y / 3.7} mm to the left</p>
+                    <p>Displaced {data.y / 3.7} mm to the horizontally</p>
                   </div>
                 </li>
                 <li className="mb-0">
