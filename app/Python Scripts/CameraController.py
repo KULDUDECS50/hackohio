@@ -23,12 +23,7 @@ def captureimage():
     if not cap.isOpened():
         print("Error: Could not open camera.")
         exit()
-
-
-
-
     ret, frame = cap.read()
-
     # Check if frame is captured successfully
 
     frame = cv2.resize(frame,(xframe,yframe))
@@ -36,8 +31,6 @@ def captureimage():
 
      # Display the frame
     cv2.imshow('Camera Feed', frame)
-
-
 
 SPACE pressed
     img_name = "opencv_frame{}.png".format(imgcounter)
@@ -52,6 +45,7 @@ SPACE pressed
     print("{} written!".format(imgname))
 
     return imgname
+
 
 
 Release the camera and close the window

@@ -5,6 +5,8 @@ import CameraController
 import ArduinoController
 import math
 
+
+
 def find_transformation(ref, input_frame, scale_factor=1, MIN_MATCH_COUNT=10, draw=False, printout=False):
     #img1 = cv.resize(ref, None, fx=scale_factor, fy=scale_factor)
     #img2 = cv.resize(input_frame, None, fx=scale_factor, fy=scale_factor)
@@ -47,6 +49,10 @@ def find_transformation(ref, input_frame, scale_factor=1, MIN_MATCH_COUNT=10, dr
     else:
         print(f"Not enough matches found - {len(good)}/{MIN_MATCH_COUNT}")
         return None
+
+
+
+        
 
 def draw_matches(img1, kp1, img2, kp2, good, mask):
     draw_params = dict(matchColor=(0, 255, 0),
