@@ -12,7 +12,7 @@ AutoPatt is an image processing program that takes two images (a before and an a
 ✅ **Translates to C** – AutoPatt translates the pixels into rotations required for the servo to rotate by translating the pre-existing Python into C in order to efficiently run the Arduino behind the Servo.
 
 ### 🛠 Tech Stack  
-- **Frontend**: Python and Typescript (for the webapp).
+- **Frontend**: Python, C, C++, and Typescript (for the webapp).
 - **Backend**: Cython (C to Python and Python to C).
 - **Deployment**: Vercel (work in progress)
 
