@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowLeft, UserPlus, Check, ExternalLink } from "lucide-react";
+import { ArrowLeft, UserPlus, Check } from "lucide-react";
 
 interface LinkedInProps {
   onBack: () => void;
