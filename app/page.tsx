@@ -21,6 +21,8 @@ function App() {
     setStatus("loading");
     setMessage("");
     // TODO: Hook up to backend/Google Sheet/Zapier. Simulate for now.
+    console.log("Submitting email:", email);
+
     await new Promise((r) => setTimeout(r, 900));
     setStatus("success");
     setMessage("You're on the list. We'll be in touch soon.");
@@ -54,7 +56,7 @@ function App() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@lab.edu"
-              className="body-font w-full rounded-full border border-neutral/40 bg-background px-4 py-3 text-sm text-primary placeholder:text-secondary focus:outline-none focus:ring-2 focus:ring-primary"
+              className="body-font w-full rounded-full border border-neutral/40 bg-background px-4 py-3 text-sm text-white placeholder:text-secondary focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <button
               onClick={joinWaitlist}
